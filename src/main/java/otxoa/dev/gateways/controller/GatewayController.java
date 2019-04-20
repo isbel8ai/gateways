@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequestMapping("/gateways")
 public class GatewayController {
 
-    private final GatewayRepository gatewayRepository;
+    private GatewayRepository gatewayRepository;
 
     @Autowired
     public GatewayController(GatewayRepository gatewayRepository) {

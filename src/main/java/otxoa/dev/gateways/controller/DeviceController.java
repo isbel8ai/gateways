@@ -28,6 +28,9 @@ public class DeviceController {
 
     @GetMapping
     public Page<Device> getAllGatewayDevices(@PathVariable Long gatewayId, Pageable pageable) {
+        if (!gatewayRepository.existsById(gatewayId)) {
+            throw new ResourceNotFoundException("GatewayId " + gatewayId + " not found");
+        }
         return deviceRepository.findByGatewayId(gatewayId, pageable);
     }
 
