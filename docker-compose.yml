@@ -16,7 +16,7 @@ services:
       - $GW_APP_STORAGE:/app:rw
 
   backend:
-    image: maven:3.5-jdk-8
+    image:  zenika/alpine-maven:3-jdk8
     environment:
       GW_MYSQL_HOST: db
       GW_MYSQL_PORT: 3306
@@ -25,9 +25,9 @@ services:
       GW_MYSQL_PASSWORD: $GW_MYSQL_PASSWORD
 
     volumes:
-      - .:/app
-      - ~/.m2:/root/.m2
-    working_dir: /app
+      - .:/usr/src/app
+      - $GW_MAVEN_M2_DIR:/root/.m2
+    working_dir: /usr/src/app
     ports:
       - $GW_BACKEND_PORT:8080
     command: mvn clean spring-boot:run

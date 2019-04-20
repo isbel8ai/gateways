@@ -31,6 +31,6 @@ public class Device {
     private String status;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, updatable = false)
     private Gateway gateway;
 }
