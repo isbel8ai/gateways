@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${GW_MYSQL_HOST}:${GW_MYSQL_PORT}/${GW_MYSQL_DATABASE}
+    username: ${GW_MYSQL_USER}
+    password: ${GW_MYSQL_PASSWORD}
+
+  jpa:
+    hibernate.ddl-auto: create
+    generate-ddl: true
+    show-sql: true
